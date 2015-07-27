@@ -3,14 +3,60 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="dijit/themes/claro/claro.css">
 </head>
-<body>
-	<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+<body class="claro">
+	<form data-dojo-type="dijit/form/Form" id="form">
+		<label>Text:
+			<input type="text" id="text" placeholder="Enter text to be added to the store" data-dojo-type="dijit/form/TextBox">
+		</label>
+
+		<button type="submit" id="submit" data-dojo-type="dijit/form/Button">
+			Add Text
+		</button>
+	</form>
+
+	<div id="list"></div>
+
+	<script src="dojoConfig.js"></script>
+	<script src="dojo/dojo.js"></script>
 	<script type="text/javascript">
 		require([
-			
-		], function () {
-			
+			'dojo/parser',
+			'custom/store/TrackableMemoryStore',
+			'dijit/registry',
+
+			'custom/widget/ListWidget',
+			'dijit/form/Form',
+			'dijit/form/Button',
+			'dijit/form/TextBox',
+
+			'dojo/domReady!'
+		], function (parser, TrackableMemoryStore, registry, ListWidget) {
+			var store = new TrackableMemoryStore({
+				idProperty: 'id'
+			});
+
+			parser.parse();
+
+			var list = new ListWidget({
+				store: store
+			}, 'list').startup();
+
+			var submitButton = registry.byId('submit');
+			var textBox = registry.byId('text')
+
+			submitButton.on('click', function (event) {
+				// summary:
+				//         add the entered text to the store and clear the text box
+				event.preventDefault();
+
+				store.add({
+					text: textBox.get('value')
+				});
+
+				textBox.set('value', '');
+			})
 		});
 	</script>
 </body>
