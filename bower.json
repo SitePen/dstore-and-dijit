@@ -1,0 +1,14 @@
+{
+  "name": "Dstore and Dijit",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SitePen/dstore-and-dijit",
+  "authors": [
+    "SitePen"
+  ],
+  "license": "BSD",
+  "dependencies": {
+    "dijit": "~1.10.4",
+    "dstore": "~1.1.0",
+    "dojo": "~1.10.4"
+  }
+}
