@@ -6,6 +6,13 @@
 	<link rel="stylesheet" href="dist/dijit/themes/claro/claro.css">
 </head>
 <body class="claro">
+	<h1>Simple Model-View synchronization with dstore and Dijit Demo</h1>
+	<p>
+		Enter text into the text box and hit 'Add Text' will cause the text to be added to the dstore
+		and then the 'add' event will be called triggering the list to update. You can also delete
+		an item by clicking it.
+	</p>
+
 	<form data-dojo-type="dijit/form/Form" id="form">
 		<label>Text:
 			<input type="text" id="text" placeholder="Enter text to be added to the store" data-dojo-type="dijit/form/TextBox">
