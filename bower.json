@@ -5,7 +5,6 @@
   "authors": [
     "SitePen"
   ],
-  "license": "BSD",
   "dependencies": {
     "dijit": "~1.10.4",
     "dstore": "~1.1.0",
